@@ -60,5 +60,18 @@ namespace GameAPI.Controllers
             _gameRepo.AddGame(AjoutToPOCO(nouveauJeu));
             return Ok();
         }
+
+        [HttpGet]
+        [Route("byKeyword/{keyword:string}")]
+        public IActionResult ByKeyword(string keyword)
+        {
+            return Ok(_gameRepo.GetByKeywork(keyword));
+        }
+        [HttpGet]
+        [Route("byGenre/{genreId:int}")]
+        public IActionResult ByGenre(int genreId)
+        {
+            return Ok(_gameRepo.GetByGenre(genreId));
+        }
     }
 }
